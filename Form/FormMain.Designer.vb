@@ -44,6 +44,7 @@ Partial Class FormMain
         Me.menuMain.Location = New System.Drawing.Point(0, 0)
         Me.menuMain.Name = "menuMain"
         Me.menuMain.Size = New System.Drawing.Size(346, 24)
+        Me.menuMain.TabIndex = 2
         Me.menuMain.Text = "MenuStrip1"
         '
         'FileToolStripMenuItem
@@ -66,7 +67,7 @@ Partial Class FormMain
         Me.labelPatch.Location = New System.Drawing.Point(12, 132)
         Me.labelPatch.Name = "labelPatch"
         Me.labelPatch.Size = New System.Drawing.Size(95, 21)
-        Me.labelPatch.TabIndex = 2
+        Me.labelPatch.TabIndex = 3
         Me.labelPatch.Text = "Select Patch:"
         Me.labelPatch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -78,7 +79,7 @@ Partial Class FormMain
         Me.comboPatch.Location = New System.Drawing.Point(113, 132)
         Me.comboPatch.Name = "comboPatch"
         Me.comboPatch.Size = New System.Drawing.Size(221, 21)
-        Me.comboPatch.TabIndex = 3
+        Me.comboPatch.TabIndex = 6
         '
         'comboSeason
         '
@@ -88,7 +89,7 @@ Partial Class FormMain
         Me.comboSeason.Location = New System.Drawing.Point(113, 159)
         Me.comboSeason.Name = "comboSeason"
         Me.comboSeason.Size = New System.Drawing.Size(221, 21)
-        Me.comboSeason.TabIndex = 4
+        Me.comboSeason.TabIndex = 7
         '
         'comboGameplay
         '
@@ -98,7 +99,7 @@ Partial Class FormMain
         Me.comboGameplay.Location = New System.Drawing.Point(113, 186)
         Me.comboGameplay.Name = "comboGameplay"
         Me.comboGameplay.Size = New System.Drawing.Size(221, 21)
-        Me.comboGameplay.TabIndex = 5
+        Me.comboGameplay.TabIndex = 8
         '
         'labelSeason
         '
@@ -106,7 +107,7 @@ Partial Class FormMain
         Me.labelSeason.Location = New System.Drawing.Point(12, 159)
         Me.labelSeason.Name = "labelSeason"
         Me.labelSeason.Size = New System.Drawing.Size(95, 21)
-        Me.labelSeason.TabIndex = 7
+        Me.labelSeason.TabIndex = 4
         Me.labelSeason.Text = "Select Season:"
         Me.labelSeason.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -116,7 +117,7 @@ Partial Class FormMain
         Me.labelGameplay.Location = New System.Drawing.Point(12, 186)
         Me.labelGameplay.Name = "labelGameplay"
         Me.labelGameplay.Size = New System.Drawing.Size(95, 21)
-        Me.labelGameplay.TabIndex = 8
+        Me.labelGameplay.TabIndex = 5
         Me.labelGameplay.Text = "Select Gameplay:"
         Me.labelGameplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -134,6 +135,7 @@ Partial Class FormMain
         Me.buttonPlay.Location = New System.Drawing.Point(113, 224)
         Me.buttonPlay.Name = "buttonPlay"
         Me.buttonPlay.Size = New System.Drawing.Size(221, 40)
+        Me.buttonPlay.TabIndex = 1
         Me.buttonPlay.Text = "PLAY PATCH"
         Me.buttonPlay.UseVisualStyleBackColor = True
         '
@@ -143,6 +145,7 @@ Partial Class FormMain
         Me.buttonSave.Location = New System.Drawing.Point(12, 224)
         Me.buttonSave.Name = "buttonSave"
         Me.buttonSave.Size = New System.Drawing.Size(95, 40)
+        Me.buttonSave.TabIndex = 10
         Me.buttonSave.Text = "SAVE"
         Me.buttonSave.UseVisualStyleBackColor = True
         '
