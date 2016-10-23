@@ -44,7 +44,6 @@ Partial Class FormMain
         Me.menuMain.Location = New System.Drawing.Point(0, 0)
         Me.menuMain.Name = "menuMain"
         Me.menuMain.Size = New System.Drawing.Size(346, 24)
-        Me.menuMain.TabIndex = 0
         Me.menuMain.Text = "MenuStrip1"
         '
         'FileToolStripMenuItem
@@ -135,7 +134,6 @@ Partial Class FormMain
         Me.buttonPlay.Location = New System.Drawing.Point(113, 224)
         Me.buttonPlay.Name = "buttonPlay"
         Me.buttonPlay.Size = New System.Drawing.Size(221, 40)
-        Me.buttonPlay.TabIndex = 10
         Me.buttonPlay.Text = "PLAY PATCH"
         Me.buttonPlay.UseVisualStyleBackColor = True
         '
@@ -145,7 +143,6 @@ Partial Class FormMain
         Me.buttonSave.Location = New System.Drawing.Point(12, 224)
         Me.buttonSave.Name = "buttonSave"
         Me.buttonSave.Size = New System.Drawing.Size(95, 40)
-        Me.buttonSave.TabIndex = 11
         Me.buttonSave.Text = "SAVE"
         Me.buttonSave.UseVisualStyleBackColor = True
         '
@@ -168,6 +165,7 @@ Partial Class FormMain
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MainMenuStrip = Me.menuMain
+        Me.MaximizeBox = False
         Me.Name = "FormMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Shollym Multi-Patch Switcher"
