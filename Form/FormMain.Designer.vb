@@ -43,9 +43,9 @@ Partial Class FormMain
         Me.menuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
         Me.menuMain.Location = New System.Drawing.Point(0, 0)
         Me.menuMain.Name = "menuMain"
-        Me.menuMain.Size = New System.Drawing.Size(346, 24)
+        Me.menuMain.Size = New System.Drawing.Size(344, 24)
         Me.menuMain.TabIndex = 2
-        Me.menuMain.Text = "MenuStrip1"
+        Me.menuMain.Text = "MenuMain"
         '
         'FileToolStripMenuItem
         '
@@ -55,16 +55,17 @@ Partial Class FormMain
         '
         'pictureLogo
         '
+        Me.pictureLogo.Image = Global.Jasarsoft.ShollymSwitcher.My.Resources.Resources.logo
         Me.pictureLogo.Location = New System.Drawing.Point(12, 36)
         Me.pictureLogo.Name = "pictureLogo"
-        Me.pictureLogo.Size = New System.Drawing.Size(322, 81)
+        Me.pictureLogo.Size = New System.Drawing.Size(320, 100)
         Me.pictureLogo.TabIndex = 1
         Me.pictureLogo.TabStop = False
         '
         'labelPatch
         '
         Me.labelPatch.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.labelPatch.Location = New System.Drawing.Point(12, 132)
+        Me.labelPatch.Location = New System.Drawing.Point(12, 151)
         Me.labelPatch.Name = "labelPatch"
         Me.labelPatch.Size = New System.Drawing.Size(95, 21)
         Me.labelPatch.TabIndex = 3
@@ -76,9 +77,9 @@ Partial Class FormMain
         Me.comboPatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboPatch.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.comboPatch.FormattingEnabled = True
-        Me.comboPatch.Location = New System.Drawing.Point(113, 132)
+        Me.comboPatch.Location = New System.Drawing.Point(112, 151)
         Me.comboPatch.Name = "comboPatch"
-        Me.comboPatch.Size = New System.Drawing.Size(221, 21)
+        Me.comboPatch.Size = New System.Drawing.Size(220, 21)
         Me.comboPatch.TabIndex = 6
         '
         'comboSeason
@@ -86,9 +87,9 @@ Partial Class FormMain
         Me.comboSeason.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboSeason.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.comboSeason.FormattingEnabled = True
-        Me.comboSeason.Location = New System.Drawing.Point(113, 159)
+        Me.comboSeason.Location = New System.Drawing.Point(112, 178)
         Me.comboSeason.Name = "comboSeason"
-        Me.comboSeason.Size = New System.Drawing.Size(221, 21)
+        Me.comboSeason.Size = New System.Drawing.Size(220, 21)
         Me.comboSeason.TabIndex = 7
         '
         'comboGameplay
@@ -96,15 +97,15 @@ Partial Class FormMain
         Me.comboGameplay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.comboGameplay.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.comboGameplay.FormattingEnabled = True
-        Me.comboGameplay.Location = New System.Drawing.Point(113, 186)
+        Me.comboGameplay.Location = New System.Drawing.Point(112, 205)
         Me.comboGameplay.Name = "comboGameplay"
-        Me.comboGameplay.Size = New System.Drawing.Size(221, 21)
+        Me.comboGameplay.Size = New System.Drawing.Size(220, 21)
         Me.comboGameplay.TabIndex = 8
         '
         'labelSeason
         '
         Me.labelSeason.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.labelSeason.Location = New System.Drawing.Point(12, 159)
+        Me.labelSeason.Location = New System.Drawing.Point(12, 178)
         Me.labelSeason.Name = "labelSeason"
         Me.labelSeason.Size = New System.Drawing.Size(95, 21)
         Me.labelSeason.TabIndex = 4
@@ -114,9 +115,9 @@ Partial Class FormMain
         'labelGameplay
         '
         Me.labelGameplay.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.labelGameplay.Location = New System.Drawing.Point(12, 186)
+        Me.labelGameplay.Location = New System.Drawing.Point(12, 205)
         Me.labelGameplay.Name = "labelGameplay"
-        Me.labelGameplay.Size = New System.Drawing.Size(95, 21)
+        Me.labelGameplay.Size = New System.Drawing.Size(94, 21)
         Me.labelGameplay.TabIndex = 5
         Me.labelGameplay.Text = "Select Gameplay:"
         Me.labelGameplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -124,17 +125,17 @@ Partial Class FormMain
         'labelHorizontalLine
         '
         Me.labelHorizontalLine.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.labelHorizontalLine.Location = New System.Drawing.Point(12, 219)
+        Me.labelHorizontalLine.Location = New System.Drawing.Point(12, 238)
         Me.labelHorizontalLine.Name = "labelHorizontalLine"
-        Me.labelHorizontalLine.Size = New System.Drawing.Size(322, 2)
+        Me.labelHorizontalLine.Size = New System.Drawing.Size(320, 2)
         Me.labelHorizontalLine.TabIndex = 9
         '
         'buttonPlay
         '
         Me.buttonPlay.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.buttonPlay.Location = New System.Drawing.Point(113, 224)
+        Me.buttonPlay.Location = New System.Drawing.Point(113, 243)
         Me.buttonPlay.Name = "buttonPlay"
-        Me.buttonPlay.Size = New System.Drawing.Size(221, 40)
+        Me.buttonPlay.Size = New System.Drawing.Size(219, 40)
         Me.buttonPlay.TabIndex = 1
         Me.buttonPlay.Text = "PLAY PATCH"
         Me.buttonPlay.UseVisualStyleBackColor = True
@@ -142,7 +143,7 @@ Partial Class FormMain
         'buttonSave
         '
         Me.buttonSave.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Me.buttonSave.Location = New System.Drawing.Point(12, 224)
+        Me.buttonSave.Location = New System.Drawing.Point(12, 243)
         Me.buttonSave.Name = "buttonSave"
         Me.buttonSave.Size = New System.Drawing.Size(95, 40)
         Me.buttonSave.TabIndex = 10
@@ -153,7 +154,7 @@ Partial Class FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(346, 276)
+        Me.ClientSize = New System.Drawing.Size(344, 295)
         Me.Controls.Add(Me.buttonSave)
         Me.Controls.Add(Me.buttonPlay)
         Me.Controls.Add(Me.labelHorizontalLine)
