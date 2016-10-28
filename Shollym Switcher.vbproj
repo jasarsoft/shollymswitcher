@@ -71,6 +71,8 @@
       <DependentUpon>FormMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Class\Logo.vb" />
+    <Compile Include="Class\Gameplay.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -87,6 +89,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Class\Patch.vb" />
+    <Compile Include="Class\Switcher.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form\FormMain.resx">
