@@ -20,17 +20,16 @@ Public NotInheritable Class Help
 
     Public Sub Readme()
         Dim name As String
+        Dim msgText As String
+        Dim msgTitle As New Title()
 
         For Each name In Directory.GetFiles(FolderName.HELP)
             Dim info As New FileInfo(name)
             If info.Name.Contains(FileName.README) Then
-                Process.Start(info.FullName)
+                Call Start(info.Name, "file")
                 Exit Sub
             End If
         Next
-
-        Dim msgText As String
-        Dim msgTitle As New Title()
 
         msgText = "Readme file does not exist in the help directory." & Environment.NewLine
         msgText += "See the Facebook page for more information about the patch."
@@ -40,20 +39,20 @@ Public NotInheritable Class Help
 
     Public Sub Facebook()
 
-        OpenLink(FileName.FACEBOOK, LinkName.FACEBOOK)
+        Call Open(FileName.FACEBOOK, LinkName.FACEBOOK)
     End Sub
 
     Public Sub Download()
 
-        OpenLink(FileName.DOWNLOAD, LinkName.DOWNLOAD)
+        Call Open(FileName.DOWNLOAD, LinkName.DOWNLOAD)
     End Sub
 
 
-    Private Sub OpenLink(ByVal name As String, ByVal link As String)
+    Private Sub Open(ByVal name As String, ByVal link As String)
         Dim path As String = FolderName.HELP & name
 
         If File.Exists(path) Then
-            Process.Start(path)
+            Call Start(name, "link")
         Else
             Dim msgText As String
             Dim msgTitle As New Title()
@@ -64,8 +63,25 @@ Public NotInheritable Class Help
 
             MessageBox.Show(msgText, msgTitle.Warn, MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
-            Process.Start(link)
+            Call Start(link, "link")
         End If
+    End Sub
+
+    Private Sub Start(ByVal name As String, ByVal suffix As String)
+        Dim path As String = FolderName.HELP & name
+
+        Try
+            Process.Start(path)
+        Catch ex As Exception
+            Dim msgText As String
+            Dim msgTitle As New Title()
+
+            msgText = name.Substring(0, 1).ToUpper() + name.Substring(1, name.IndexOf(".") - 1)
+            msgText &= " " & suffix & " is not running." & Environment.NewLine
+            msgText &= "An unknown error during startup."
+
+            MessageBox.Show(msgText, msgTitle.Warn, MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
     End Sub
 
 End Class
