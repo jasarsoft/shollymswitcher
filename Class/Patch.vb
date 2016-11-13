@@ -7,6 +7,7 @@ Public NotInheritable Class Patch
     Private _list As List(Of String)
 
     Public Sub New()
+        _name = Nothing
         _list = New List(Of String)
     End Sub
 
@@ -30,8 +31,7 @@ Public NotInheritable Class Patch
         Dim dirPath As String
 
         _list.Clear()
-        dirPath = Directory.GetCurrentDirectory() & ConstSlash
-        dirPath += FolderPatch
+        dirPath = FolderApp & ConstSlash & FolderPatch
 
         If Directory.Exists(dirPath) Then
             For Each dirName As String In Directory.GetDirectories(dirPath)
@@ -42,6 +42,24 @@ Public NotInheritable Class Patch
         End If
 
         Return False
+    End Function
+
+    Public Function Save(ByVal patch As String, ByVal season As String) As Boolean
+        Dim dirPath As String
+
+        dirPath = FolderApp & ConstSlash
+        dirPath += FolderPatch & ConstSlash
+        dirPath += patch & ConstSlash
+        dirPath += season & ConstSlash
+        dirPath += FolderData
+
+        Try
+            My.Computer.FileSystem.CopyDirectory(dirPath, "..\", True)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
     End Function
 
 End Class
