@@ -130,7 +130,7 @@ Public Class Settings
                     End If
                 Loop
 
-                If Patch Is Nothing Or Season Is Nothing Or Gameplay Is Nothing Then
+                If _patch Is Nothing Or _season Is Nothing Or _gameplay Is Nothing Then
                     Return False
                 Else
                     Return True
