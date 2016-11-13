@@ -7,6 +7,7 @@ Public Class Season
     Private _list As List(Of String)
 
     Public Sub New()
+        _name = Nothing
         _list = New List(Of String)
     End Sub
 
@@ -29,7 +30,7 @@ Public Class Season
         Dim dirPath As String
 
         _list.Clear()
-        dirPath = Directory.GetCurrentDirectory() & ConstSlash
+        dirPath = FolderApp & ConstSlash
         dirPath += FolderPatch & ConstSlash
         dirPath += patchName
 
