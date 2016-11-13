@@ -1,6 +1,6 @@
 ﻿Module Main
 
-    'Public _edit As Edit
+    Public _edit As Edit
 
     'Public Function Main() As Integer
 
@@ -11,7 +11,7 @@
     '    Return 1
     'End Function
 
-    'Sub New()
-    '    _edit = New Edit()
-    'End Sub
+    Sub New()
+        _edit = New Edit()
+    End Sub
 End Module
