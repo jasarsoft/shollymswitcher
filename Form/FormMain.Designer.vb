@@ -23,8 +23,28 @@ Partial Class FormMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.menuMain = New System.Windows.Forms.MenuStrip()
-        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.pictureLogo = New System.Windows.Forms.PictureBox()
+        Me.menuItemFile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuFileItemPlay = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuFileItemSave = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuFileSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.menuFileItemRestart = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuFileSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.menuFileItemExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuItemEdit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuEditItemPatch = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuEditItemSeason = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuEditItemGameplay = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuEditSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.menuEditItemLogo = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuItemTools = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuToolsItemKitserver = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuToolsItemSettings = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuItemHelp = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuHelpItemReadme = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuHelpItemFacebook = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuHelpItemDownload = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menuHelpItemSeparator = New System.Windows.Forms.ToolStripSeparator()
+        Me.menuHelpItemAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.labelPatch = New System.Windows.Forms.Label()
         Me.comboPatch = New System.Windows.Forms.ComboBox()
         Me.comboSeason = New System.Windows.Forms.ComboBox()
@@ -34,33 +54,151 @@ Partial Class FormMain
         Me.labelHorizontalLine = New System.Windows.Forms.Label()
         Me.buttonPlay = New System.Windows.Forms.Button()
         Me.buttonSave = New System.Windows.Forms.Button()
+        Me.pictureLogo = New System.Windows.Forms.PictureBox()
         Me.menuMain.SuspendLayout()
         CType(Me.pictureLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'menuMain
         '
-        Me.menuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.menuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuItemFile, Me.menuItemEdit, Me.menuItemTools, Me.menuItemHelp})
         Me.menuMain.Location = New System.Drawing.Point(0, 0)
         Me.menuMain.Name = "menuMain"
         Me.menuMain.Size = New System.Drawing.Size(344, 24)
         Me.menuMain.TabIndex = 2
         Me.menuMain.Text = "MenuMain"
         '
-        'FileToolStripMenuItem
+        'menuItemFile
         '
-        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
-        Me.FileToolStripMenuItem.Text = "File"
+        Me.menuItemFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuFileItemPlay, Me.menuFileItemSave, Me.menuFileSeparator1, Me.menuFileItemRestart, Me.menuFileSeparator2, Me.menuFileItemExit})
+        Me.menuItemFile.Name = "menuItemFile"
+        Me.menuItemFile.Size = New System.Drawing.Size(37, 20)
+        Me.menuItemFile.Text = "File"
         '
-        'pictureLogo
+        'menuFileItemPlay
         '
-        Me.pictureLogo.Image = Global.Jasarsoft.ShollymSwitcher.My.Resources.Resources.logo
-        Me.pictureLogo.Location = New System.Drawing.Point(12, 36)
-        Me.pictureLogo.Name = "pictureLogo"
-        Me.pictureLogo.Size = New System.Drawing.Size(320, 100)
-        Me.pictureLogo.TabIndex = 1
-        Me.pictureLogo.TabStop = False
+        Me.menuFileItemPlay.Name = "menuFileItemPlay"
+        Me.menuFileItemPlay.Size = New System.Drawing.Size(110, 22)
+        Me.menuFileItemPlay.Text = "&Play"
+        '
+        'menuFileItemSave
+        '
+        Me.menuFileItemSave.Name = "menuFileItemSave"
+        Me.menuFileItemSave.Size = New System.Drawing.Size(110, 22)
+        Me.menuFileItemSave.Text = "&Save"
+        '
+        'menuFileSeparator1
+        '
+        Me.menuFileSeparator1.Name = "menuFileSeparator1"
+        Me.menuFileSeparator1.Size = New System.Drawing.Size(107, 6)
+        '
+        'menuFileItemRestart
+        '
+        Me.menuFileItemRestart.Name = "menuFileItemRestart"
+        Me.menuFileItemRestart.Size = New System.Drawing.Size(110, 22)
+        Me.menuFileItemRestart.Text = "&Restart"
+        '
+        'menuFileSeparator2
+        '
+        Me.menuFileSeparator2.Name = "menuFileSeparator2"
+        Me.menuFileSeparator2.Size = New System.Drawing.Size(107, 6)
+        '
+        'menuFileItemExit
+        '
+        Me.menuFileItemExit.Name = "menuFileItemExit"
+        Me.menuFileItemExit.Size = New System.Drawing.Size(110, 22)
+        Me.menuFileItemExit.Text = "E&xit"
+        '
+        'menuItemEdit
+        '
+        Me.menuItemEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuEditItemPatch, Me.menuEditItemSeason, Me.menuEditItemGameplay, Me.menuEditSeparator1, Me.menuEditItemLogo})
+        Me.menuItemEdit.Name = "menuItemEdit"
+        Me.menuItemEdit.Size = New System.Drawing.Size(39, 20)
+        Me.menuItemEdit.Text = "&Edit"
+        '
+        'menuEditItemPatch
+        '
+        Me.menuEditItemPatch.Name = "menuEditItemPatch"
+        Me.menuEditItemPatch.Size = New System.Drawing.Size(152, 22)
+        Me.menuEditItemPatch.Text = "&Patch"
+        '
+        'menuEditItemSeason
+        '
+        Me.menuEditItemSeason.Name = "menuEditItemSeason"
+        Me.menuEditItemSeason.Size = New System.Drawing.Size(152, 22)
+        Me.menuEditItemSeason.Text = "&Season"
+        '
+        'menuEditItemGameplay
+        '
+        Me.menuEditItemGameplay.Name = "menuEditItemGameplay"
+        Me.menuEditItemGameplay.Size = New System.Drawing.Size(152, 22)
+        Me.menuEditItemGameplay.Text = "&Gameplay"
+        '
+        'menuEditSeparator1
+        '
+        Me.menuEditSeparator1.Name = "menuEditSeparator1"
+        Me.menuEditSeparator1.Size = New System.Drawing.Size(149, 6)
+        '
+        'menuEditItemLogo
+        '
+        Me.menuEditItemLogo.Name = "menuEditItemLogo"
+        Me.menuEditItemLogo.Size = New System.Drawing.Size(152, 22)
+        Me.menuEditItemLogo.Text = "&Logo Image"
+        '
+        'menuItemTools
+        '
+        Me.menuItemTools.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuToolsItemKitserver, Me.menuToolsItemSettings})
+        Me.menuItemTools.Name = "menuItemTools"
+        Me.menuItemTools.Size = New System.Drawing.Size(48, 20)
+        Me.menuItemTools.Text = "&Tools"
+        '
+        'menuToolsItemKitserver
+        '
+        Me.menuToolsItemKitserver.Name = "menuToolsItemKitserver"
+        Me.menuToolsItemKitserver.Size = New System.Drawing.Size(119, 22)
+        Me.menuToolsItemKitserver.Text = "&Kitserver"
+        '
+        'menuToolsItemSettings
+        '
+        Me.menuToolsItemSettings.Name = "menuToolsItemSettings"
+        Me.menuToolsItemSettings.Size = New System.Drawing.Size(119, 22)
+        Me.menuToolsItemSettings.Text = "&Settings"
+        '
+        'menuItemHelp
+        '
+        Me.menuItemHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuHelpItemReadme, Me.menuHelpItemFacebook, Me.menuHelpItemDownload, Me.menuHelpItemSeparator, Me.menuHelpItemAbout})
+        Me.menuItemHelp.Name = "menuItemHelp"
+        Me.menuItemHelp.Size = New System.Drawing.Size(44, 20)
+        Me.menuItemHelp.Text = "&Help"
+        '
+        'menuHelpItemReadme
+        '
+        Me.menuHelpItemReadme.Name = "menuHelpItemReadme"
+        Me.menuHelpItemReadme.Size = New System.Drawing.Size(128, 22)
+        Me.menuHelpItemReadme.Text = "&Readme"
+        '
+        'menuHelpItemFacebook
+        '
+        Me.menuHelpItemFacebook.Name = "menuHelpItemFacebook"
+        Me.menuHelpItemFacebook.Size = New System.Drawing.Size(128, 22)
+        Me.menuHelpItemFacebook.Text = "&Facebook"
+        '
+        'menuHelpItemDownload
+        '
+        Me.menuHelpItemDownload.Name = "menuHelpItemDownload"
+        Me.menuHelpItemDownload.Size = New System.Drawing.Size(128, 22)
+        Me.menuHelpItemDownload.Text = "&Download"
+        '
+        'menuHelpItemSeparator
+        '
+        Me.menuHelpItemSeparator.Name = "menuHelpItemSeparator"
+        Me.menuHelpItemSeparator.Size = New System.Drawing.Size(125, 6)
+        '
+        'menuHelpItemAbout
+        '
+        Me.menuHelpItemAbout.Name = "menuHelpItemAbout"
+        Me.menuHelpItemAbout.Size = New System.Drawing.Size(128, 22)
+        Me.menuHelpItemAbout.Text = "&About"
         '
         'labelPatch
         '
@@ -150,6 +288,15 @@ Partial Class FormMain
         Me.buttonSave.Text = "SAVE"
         Me.buttonSave.UseVisualStyleBackColor = True
         '
+        'pictureLogo
+        '
+        Me.pictureLogo.Image = Global.Jasarsoft.ShollymSwitcher.My.Resources.Resources.logo
+        Me.pictureLogo.Location = New System.Drawing.Point(12, 36)
+        Me.pictureLogo.Name = "pictureLogo"
+        Me.pictureLogo.Size = New System.Drawing.Size(320, 100)
+        Me.pictureLogo.TabIndex = 1
+        Me.pictureLogo.TabStop = False
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -181,7 +328,7 @@ Partial Class FormMain
 
     End Sub
     Friend WithEvents menuMain As System.Windows.Forms.MenuStrip
-    Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuItemFile As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents pictureLogo As System.Windows.Forms.PictureBox
     Friend WithEvents labelPatch As System.Windows.Forms.Label
     Friend WithEvents comboPatch As System.Windows.Forms.ComboBox
@@ -192,5 +339,26 @@ Partial Class FormMain
     Friend WithEvents labelHorizontalLine As System.Windows.Forms.Label
     Friend WithEvents buttonPlay As System.Windows.Forms.Button
     Friend WithEvents buttonSave As System.Windows.Forms.Button
+    Friend WithEvents menuItemEdit As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuItemTools As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuItemHelp As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuFileItemPlay As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuFileItemSave As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuFileSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents menuFileItemRestart As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuFileSeparator2 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents menuFileItemExit As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuEditItemPatch As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuEditItemSeason As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuEditItemGameplay As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuEditSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents menuEditItemLogo As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuToolsItemKitserver As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuToolsItemSettings As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuHelpItemReadme As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuHelpItemFacebook As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuHelpItemDownload As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents menuHelpItemSeparator As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents menuHelpItemAbout As System.Windows.Forms.ToolStripMenuItem
 
 End Class
