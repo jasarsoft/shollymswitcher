@@ -2,11 +2,14 @@
 
 Public NotInheritable Class Patch
     Inherits Switcher
-    
+
     Private _name As String
+    Private _lenght As Integer
     Private _list As List(Of String)
 
+
     Public Sub New()
+        _lenght = 0
         _name = Nothing
         _list = New List(Of String)
     End Sub
@@ -27,39 +30,72 @@ Public NotInheritable Class Patch
         End Get
     End Property
 
+    Public ReadOnly Property Lenght As Integer
+        Get
+            Return _lenght
+        End Get
+    End Property
+
+    Public ReadOnly Property Folder As String
+        Get
+            Return FolderApp & Slash & FolderPatch
+        End Get
+    End Property
+
+
     Public Function Read() As Boolean
-        Dim dirPath As String
+        Dim msgText As String
+        Dim msgTitle As New Title()
 
+        _lenght = 0
         _list.Clear()
-        dirPath = FolderApp & ConstSlash & FolderPatch
 
-        If Directory.Exists(dirPath) Then
-            For Each dirName As String In Directory.GetDirectories(dirPath)
+        If Directory.Exists(Folder) Then
+            For Each dirName As String In Directory.GetDirectories(Folder)
                 Dim dirInfo As New DirectoryInfo(dirName)
+
                 _list.Add(dirInfo.Name)
+                _lenght += 1 '_lenght = _lenght + 1; _lenght++; ++_lenght;
             Next
+
+            If _lenght = 0 Then
+                msgText = "In the main directory there is no patch." & Environment.NewLine
+                msgText &= "Switcher is not installed properly or is damaged."
+
+                MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return False
+            End If
+
+            'Success read
             Return True
+        Else
+            msgText = "The main patch directory does not exist." & Environment.NewLine
+            msgText &= "Switcher is not installed properly or is damaged."
+
+            MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
         Return False
     End Function
 
-    Public Function Save(ByVal patch As String, ByVal season As String) As Boolean
+    Public Function Save() As Boolean
         Dim dirPath As String
+        
+        dirPath = FolderApp & Slash & FolderPatch & Slash & _name
 
-        dirPath = FolderApp & ConstSlash
-        dirPath += FolderPatch & ConstSlash
-        dirPath += patch & ConstSlash
-        dirPath += season & ConstSlash
-        dirPath += FolderData
-
-        Try
-            My.Computer.FileSystem.CopyDirectory(dirPath, "..\", True)
+        If Directory.Exists(dirPath) Then
             Return True
-        Catch ex As Exception
-            Return False
-        End Try
+        End If
 
+        Dim msgText As String
+        Dim msgTitle As New Title()
+
+        msgText = "The selected patch does not exist." & Environment.NewLine
+        msgText &= "Shollym Switcher is not installed properly or is damaged."
+
+        MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Return False
     End Function
 
 End Class
