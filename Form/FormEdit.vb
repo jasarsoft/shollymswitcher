@@ -3,6 +3,15 @@ Imports System.Text.RegularExpressions
 
 Public Class FormEdit
 
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
+
     Private Sub FormEdit_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         FormMain.Enabled = True
         FormMain.Refresh()
@@ -10,7 +19,7 @@ Public Class FormEdit
     End Sub
 
     Private Sub buttonClose_Click(sender As Object, e As EventArgs) Handles buttonClose.Click
-        Me.Close() 
+        Me.Close()
     End Sub
 
     Private Sub buttonSave_Click(sender As Object, e As EventArgs) Handles buttonSave.Click
@@ -29,7 +38,7 @@ Public Class FormEdit
         Else
             Dim regexMatch As Match
 
-            regexMatch = Regex.Match(_edit.Name, "^[a-zA-Z0-9-\s]+$", RegexOptions.IgnoreCase)
+            regexMatch = Regex.Match(_edit.Name, "^[a-zA-Z0-9-.\s]+$", RegexOptions.IgnoreCase)
             If Not regexMatch.Success Then
                 msgText = "Name can only contain numbers and uppercase and lowercase letters."
                 MessageBox.Show(msgText, msgTitle.Warn, MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -56,7 +65,7 @@ Public Class FormEdit
                 Exit Sub
             End Try
 
-            If String.Compare(_settings.Patch, Me.textOld.Text) = 0 Then
+            If String.Compare(_settings.Patch, Me.textOld.Text, True) = 0 Then
                 _settings.Patch = _edit.Name
                 _settings.Write()
             End If
@@ -79,7 +88,7 @@ Public Class FormEdit
                 Exit Sub
             End Try
 
-            If String.Compare(_settings.Season, Me.textOld.Text) = 0 Then
+            If String.Compare(_settings.Season, Me.textOld.Text, True) = 0 Then
                 _settings.Season = _edit.Name
                 _settings.Write()
             End If
@@ -92,7 +101,7 @@ Public Class FormEdit
             index = FormMain.comboGameplay.SelectedIndex
 
             Try
-                My.Computer.FileSystem.RenameDirectory("patches\" & FormMain.comboPatch.Text & "\" & FormMain.comboSeason.Text & "\gameplay" & Me.textOld.Text, _edit.Name)
+                My.Computer.FileSystem.RenameDirectory("patches\" & FormMain.comboPatch.Text & "\" & FormMain.comboSeason.Text & "\gameplay\" & Me.textOld.Text, _edit.Name)
             Catch ex As Exception
                 msgText = "The name gameplay can not be renamed." & Environment.NewLine
                 msgText &= "Switcher or no administrative privileges" & Environment.NewLine
@@ -117,5 +126,8 @@ Public Class FormEdit
         MessageBox.Show(msgText, msgTitle.Info, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-   
+
+    Private Sub FormEdit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
