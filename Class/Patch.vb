@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 
-Public NotInheritable Class Patch
+Public Class Patch
     Inherits Switcher
 
     Private _name As String
@@ -80,7 +80,7 @@ Public NotInheritable Class Patch
 
     Public Function Save() As Boolean
         Dim dirPath As String
-        
+
         dirPath = FolderApp & Slash & FolderPatch & Slash & _name
 
         If Directory.Exists(dirPath) Then
@@ -96,6 +96,25 @@ Public NotInheritable Class Patch
         MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
 
         Return False
+    End Function
+
+    Public Function Check() As Boolean
+        Dim dirPath As String
+
+        dirPath = FolderApp & Slash & FolderPatch & Slash & _name
+
+        If Not Directory.Exists(dirPath) Then
+            Dim msgText As String
+            Dim msgTitle As New Title()
+
+            msgText = "The selected patch form the list does not exist." & Environment.NewLine
+            msgText &= "Shollym Switcher is not installed properly or is damaged."
+
+            MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End If
+
+        Return True
     End Function
 
 End Class
