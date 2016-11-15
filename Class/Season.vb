@@ -100,4 +100,24 @@ Public Class Season
 
     End Function
 
+    Public Function Check(ByVal patch As String)
+        Dim dirPath As String
+
+        dirPath = FolderApp & Slash & FolderPatch & Slash
+        dirPath &= patch & Slash & _name & Slash & FolderData
+
+        If Not Directory.Exists(dirPath) Then
+            Dim msgText As String
+            Dim msgTitle As New Title()
+
+            msgText = "The selected season form the list does not exist." & Environment.NewLine
+            msgText &= "Shollym Switcher is not installed properly or is damaged."
+
+            MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End If
+
+        Return True
+    End Function
+
 End Class
