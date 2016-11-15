@@ -1,6 +1,10 @@
 ﻿Imports System.IO
 
-Public MustInherit Class Switcher
+Public Class Switcher
+
+    Private _folderApp As String
+    Private _folderMyDoc As String
+
 
     Private Structure Constant
         Public Const SLASH As String = "\"
@@ -8,6 +12,7 @@ Public MustInherit Class Switcher
 
     Private Structure Files
         Public Const LOGO As String = "logo.png"
+        Public Const ICON As String = "icon.ico"
         Public Const GAMEPLAY As String = "KONAMI-WIN32PES6OPT"
     End Structure
 
@@ -20,15 +25,14 @@ Public MustInherit Class Switcher
         Public Const SAVE As String = "KONAMI\Shollym Multi-Patch OF\save\folder1"
     End Structure
 
-    Private _folderApp As String
-    Private _folderMyDoc As String
+
 
     Public Sub New()
         _folderApp = Directory.GetCurrentDirectory()
         _folderMyDoc = My.Computer.FileSystem.SpecialDirectories.MyDocuments
     End Sub
 
-    Protected ReadOnly Property ConstSlash As String
+    Protected ReadOnly Property Slash As String
         Get
             Return Constant.SLASH
         End Get
@@ -85,6 +89,12 @@ Public MustInherit Class Switcher
     Protected ReadOnly Property FileLogo As String
         Get
             Return Files.LOGO
+        End Get
+    End Property
+
+    Protected ReadOnly Property FileIcon As String
+        Get
+            Return Files.ICON
         End Get
     End Property
 
