@@ -78,35 +78,35 @@ Partial Class FormMain
         'menuFileItemPlay
         '
         Me.menuFileItemPlay.Name = "menuFileItemPlay"
-        Me.menuFileItemPlay.Size = New System.Drawing.Size(152, 22)
+        Me.menuFileItemPlay.Size = New System.Drawing.Size(110, 22)
         Me.menuFileItemPlay.Text = "&Play"
         '
         'menuFileItemSave
         '
         Me.menuFileItemSave.Name = "menuFileItemSave"
-        Me.menuFileItemSave.Size = New System.Drawing.Size(152, 22)
+        Me.menuFileItemSave.Size = New System.Drawing.Size(110, 22)
         Me.menuFileItemSave.Text = "&Save"
         '
         'menuFileSeparator1
         '
         Me.menuFileSeparator1.Name = "menuFileSeparator1"
-        Me.menuFileSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.menuFileSeparator1.Size = New System.Drawing.Size(107, 6)
         '
         'menuFileItemRestart
         '
         Me.menuFileItemRestart.Name = "menuFileItemRestart"
-        Me.menuFileItemRestart.Size = New System.Drawing.Size(152, 22)
+        Me.menuFileItemRestart.Size = New System.Drawing.Size(110, 22)
         Me.menuFileItemRestart.Text = "&Restart"
         '
         'menuFileSeparator2
         '
         Me.menuFileSeparator2.Name = "menuFileSeparator2"
-        Me.menuFileSeparator2.Size = New System.Drawing.Size(149, 6)
+        Me.menuFileSeparator2.Size = New System.Drawing.Size(107, 6)
         '
         'menuFileItemExit
         '
         Me.menuFileItemExit.Name = "menuFileItemExit"
-        Me.menuFileItemExit.Size = New System.Drawing.Size(152, 22)
+        Me.menuFileItemExit.Size = New System.Drawing.Size(110, 22)
         Me.menuFileItemExit.Text = "E&xit"
         '
         'menuItemEdit
@@ -119,30 +119,30 @@ Partial Class FormMain
         'menuEditItemPatch
         '
         Me.menuEditItemPatch.Name = "menuEditItemPatch"
-        Me.menuEditItemPatch.Size = New System.Drawing.Size(152, 22)
+        Me.menuEditItemPatch.Size = New System.Drawing.Size(137, 22)
         Me.menuEditItemPatch.Text = "&Patch"
         '
         'menuEditItemSeason
         '
         Me.menuEditItemSeason.Name = "menuEditItemSeason"
-        Me.menuEditItemSeason.Size = New System.Drawing.Size(152, 22)
+        Me.menuEditItemSeason.Size = New System.Drawing.Size(137, 22)
         Me.menuEditItemSeason.Text = "&Season"
         '
         'menuEditItemGameplay
         '
         Me.menuEditItemGameplay.Name = "menuEditItemGameplay"
-        Me.menuEditItemGameplay.Size = New System.Drawing.Size(152, 22)
+        Me.menuEditItemGameplay.Size = New System.Drawing.Size(137, 22)
         Me.menuEditItemGameplay.Text = "&Gameplay"
         '
         'menuEditSeparator1
         '
         Me.menuEditSeparator1.Name = "menuEditSeparator1"
-        Me.menuEditSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.menuEditSeparator1.Size = New System.Drawing.Size(134, 6)
         '
         'menuEditItemLogo
         '
         Me.menuEditItemLogo.Name = "menuEditItemLogo"
-        Me.menuEditItemLogo.Size = New System.Drawing.Size(152, 22)
+        Me.menuEditItemLogo.Size = New System.Drawing.Size(137, 22)
         Me.menuEditItemLogo.Text = "&Logo Image"
         '
         'menuItemTools
@@ -155,13 +155,13 @@ Partial Class FormMain
         'menuToolsItemKitserver
         '
         Me.menuToolsItemKitserver.Name = "menuToolsItemKitserver"
-        Me.menuToolsItemKitserver.Size = New System.Drawing.Size(152, 22)
+        Me.menuToolsItemKitserver.Size = New System.Drawing.Size(119, 22)
         Me.menuToolsItemKitserver.Text = "&Kitserver"
         '
         'menuToolsItemSettings
         '
         Me.menuToolsItemSettings.Name = "menuToolsItemSettings"
-        Me.menuToolsItemSettings.Size = New System.Drawing.Size(152, 22)
+        Me.menuToolsItemSettings.Size = New System.Drawing.Size(119, 22)
         Me.menuToolsItemSettings.Text = "&Settings"
         '
         'menuItemHelp
@@ -174,30 +174,30 @@ Partial Class FormMain
         'menuHelpItemReadme
         '
         Me.menuHelpItemReadme.Name = "menuHelpItemReadme"
-        Me.menuHelpItemReadme.Size = New System.Drawing.Size(152, 22)
+        Me.menuHelpItemReadme.Size = New System.Drawing.Size(128, 22)
         Me.menuHelpItemReadme.Text = "&Readme"
         '
         'menuHelpItemFacebook
         '
         Me.menuHelpItemFacebook.Name = "menuHelpItemFacebook"
-        Me.menuHelpItemFacebook.Size = New System.Drawing.Size(152, 22)
+        Me.menuHelpItemFacebook.Size = New System.Drawing.Size(128, 22)
         Me.menuHelpItemFacebook.Text = "&Facebook"
         '
         'menuHelpItemDownload
         '
         Me.menuHelpItemDownload.Name = "menuHelpItemDownload"
-        Me.menuHelpItemDownload.Size = New System.Drawing.Size(152, 22)
+        Me.menuHelpItemDownload.Size = New System.Drawing.Size(128, 22)
         Me.menuHelpItemDownload.Text = "&Download"
         '
         'menuHelpItemSeparator
         '
         Me.menuHelpItemSeparator.Name = "menuHelpItemSeparator"
-        Me.menuHelpItemSeparator.Size = New System.Drawing.Size(149, 6)
+        Me.menuHelpItemSeparator.Size = New System.Drawing.Size(125, 6)
         '
         'menuHelpItemAbout
         '
         Me.menuHelpItemAbout.Name = "menuHelpItemAbout"
-        Me.menuHelpItemAbout.Size = New System.Drawing.Size(152, 22)
+        Me.menuHelpItemAbout.Size = New System.Drawing.Size(128, 22)
         Me.menuHelpItemAbout.Text = "&About"
         '
         'labelPatch
@@ -294,6 +294,7 @@ Partial Class FormMain
         Me.pictureLogo.Location = New System.Drawing.Point(12, 36)
         Me.pictureLogo.Name = "pictureLogo"
         Me.pictureLogo.Size = New System.Drawing.Size(320, 100)
+        Me.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pictureLogo.TabIndex = 1
         Me.pictureLogo.TabStop = False
         '
