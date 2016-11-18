@@ -88,6 +88,7 @@
     End Sub
 
     Private Sub ComboPatch_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboPatch.SelectedIndexChanged
+        Dim _logo As New Logo()
         _patch.Name = Me.comboPatch.Text
 
         If _edit.Patch Then
@@ -99,6 +100,8 @@
             Me.comboSeason.Items.Clear()
             Me.comboGameplay.Items.Clear()
             Me.comboGameplay.Enabled = False
+
+            Me.pictureLogo.Image = My.Resources.logo
 
             If Not Me.comboSeason.Enabled Then
                 Me.comboSeason.Enabled = True
@@ -115,6 +118,7 @@
     End Sub
 
     Private Sub ComboSeason_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboSeason.SelectedIndexChanged
+        Dim _logo As New Logo()
         _season.Name = Me.comboSeason.Text
 
         If _edit.Season Then
@@ -124,6 +128,10 @@
 
         If _season.Check(_patch.Name) Then
             Me.comboGameplay.Items.Clear()
+
+            If _logo.Read(_patch.Name, _season.Name) Then
+                Me.pictureLogo.Load(_logo.Path)
+            End If
 
             If Not Me.comboGameplay.Enabled Then
                 Me.comboGameplay.Enabled = True
@@ -186,6 +194,19 @@
                     Exit Sub
                 End If
             End If
+        Else
+            If _gameplay.CheckOld() Then
+                _gameplay.Backup(_settings.Patch, _settings.Season, _settings.Gameplay)
+            End If
+
+            If Not _season.Save(_patch.Name) Then
+                Exit Sub
+            End If
+
+            If Not _gameplay.Save(_patch.Name, _season.Name) Then
+                Exit Sub
+            End If
+
         End If
 
         _settings.Patch = _patch.Name
@@ -257,7 +278,7 @@
         'End If
 
         'Save Settings
-        
+
     End Sub
 
     Private Sub ButtonPlay_Click(sender As Object, e As EventArgs) Handles buttonPlay.Click
