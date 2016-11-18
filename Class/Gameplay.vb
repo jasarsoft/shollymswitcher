@@ -229,7 +229,7 @@ Public NotInheritable Class Gameplay
     End Function
 
 
-    Public Function Check(ByVal patch As String, ByVal season As String)
+    Public Function Check(ByVal patch As String, ByVal season As String) As Boolean
         Dim path As String
 
         path = FolderApp & Slash & FolderPatch & Slash
@@ -248,6 +248,20 @@ Public NotInheritable Class Gameplay
         End If
 
         Return True
+    End Function
+
+    Public Function CheckOld() As Boolean
+        Dim path As String
+
+        path = MyBase.FolderMyDoc & MyBase.Slash
+        path &= MyBase.FolderSave & MyBase.Slash & MyBase.FileGameplay
+
+        If File.Exists(path) Then
+            Return True
+        Else
+            Return False
+        End If
+
     End Function
 
 End Class
