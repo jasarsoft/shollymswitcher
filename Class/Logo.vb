@@ -12,15 +12,15 @@ Public Class Logo
     End Property
 
 
-    Public Function Read(ByVal patchName As String, ByVal seasonName As String) As Boolean
+    Public Function Read(ByVal patch As String, ByVal season As String) As Boolean
         Dim filePath As String
 
-        filePath = Directory.GetCurrentDirectory() & ConstSlash
-        filePath += FolderPatch & ConstSlash
-        filePath += patchName & ConstSlash
-        filePath += seasonName & ConstSlash
-        filePath += FolderImage & ConstSlash
-        filePath += FileLogo
+        filePath = Directory.GetCurrentDirectory() & Slash
+        filePath &= FolderPatch & Slash
+        filePath &= patch & Slash
+        filePath &= season & Slash
+        filePath &= FolderImage & Slash
+        filePath &= FileLogo
 
         If File.Exists(filePath) Then
             _path = filePath
