@@ -1,11 +1,8 @@
 ﻿Imports System.IO
 Imports System.Xml
 
-Public Class Settings
-
-    Private Structure Constant
-        Public Const SLASH As String = "\"
-    End Structure
+Public NotInheritable Class Settings
+    Inherits Switcher
 
     Private Structure Tags
         Public Const COMMENT As String = "Shollym Switcher Settings File"
@@ -21,6 +18,8 @@ Public Class Settings
     End Structure
 
     Private Structure Folders
+        Public Const KONAMI As String = "KONAMI"
+        Public Const PES6 As String = "Shollym Multi-Patch OF"
         Public Const JASARSOFT As String = "Jasarsoft"
         Public Const SHOLLYMSWITCHER As String = "Shollym Switcher"
     End Structure
@@ -32,8 +31,8 @@ Public Class Settings
 
 
     Public Sub New()
-        _path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & Constant.SLASH
-        _path += Folders.JASARSOFT & Constant.SLASH & Folders.SHOLLYMSWITCHER & Constant.SLASH & Files.SETTINGS
+        _path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & Slash
+        _path &= Folders.KONAMI & Slash & Folders.PES6 & Slash & Files.SETTINGS
     End Sub
 
     Public ReadOnly Property Path As String
