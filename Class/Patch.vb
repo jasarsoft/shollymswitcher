@@ -4,6 +4,7 @@ Public Class Patch
     Inherits Switcher
 
     Private _name As String
+    Private _path As String
     Private _lenght As Integer
     Private _list As List(Of String)
 
@@ -11,6 +12,7 @@ Public Class Patch
     Public Sub New()
         _lenght = 0
         _name = Nothing
+        _path = Nothing
         _list = New List(Of String)
     End Sub
 
@@ -21,7 +23,14 @@ Public Class Patch
         End Get
         Set(value As String)
             _name = value
+            _path = FolderApp & Slash & FolderPatch & _name
         End Set
+    End Property
+
+    Public ReadOnly Property Path As String
+        Get
+            Return _path
+        End Get
     End Property
 
     Public ReadOnly Property List As List(Of String)
@@ -36,22 +45,18 @@ Public Class Patch
         End Get
     End Property
 
-    Public ReadOnly Property Folder As String
-        Get
-            Return FolderApp & Slash & FolderPatch
-        End Get
-    End Property
-
 
     Public Function Read() As Boolean
+        Dim folder As String
         Dim msgText As String
         Dim msgTitle As New Title()
 
         _lenght = 0
         _list.Clear()
+        folder = FolderApp & Slash & FolderPatch
 
-        If Directory.Exists(Folder) Then
-            For Each dirName As String In Directory.GetDirectories(Folder)
+        If Directory.Exists(folder) Then
+            For Each dirName As String In Directory.GetDirectories(folder)
                 Dim dirInfo As New DirectoryInfo(dirName)
 
                 _lenght += 1
@@ -79,32 +84,26 @@ Public Class Patch
         Return False
     End Function
 
-    Public Function Save() As Boolean
-        Dim dirPath As String
+    'Public Function Save() As Boolean
 
-        dirPath = FolderApp & Slash & FolderPatch & Slash & _name
+    '    If Check() Then
+    '        Return True
+    '    End If
 
-        If Directory.Exists(dirPath) Then
-            Return True
-        End If
+    '    Dim msgText As String
+    '    Dim msgTitle As New Title()
 
-        Dim msgText As String
-        Dim msgTitle As New Title()
+    '    msgText = "The selected patch does not exist." & Environment.NewLine
+    '    msgText &= "Shollym Switcher is not installed properly or is damaged."
 
-        msgText = "The selected patch does not exist." & Environment.NewLine
-        msgText &= "Shollym Switcher is not installed properly or is damaged."
+    '    MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
 
-        MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-        Return False
-    End Function
+    '    Return False
+    'End Function
 
     Public Function Check() As Boolean
-        Dim dirPath As String
 
-        dirPath = FolderApp & Slash & FolderPatch & Slash & _name
-
-        If Not Directory.Exists(dirPath) Then
+        If Not Directory.Exists(_path) Then
             Dim msgText As String
             Dim msgTitle As New Title()
 
