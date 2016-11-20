@@ -119,30 +119,30 @@ Partial Class FormMain
         'menuEditItemPatch
         '
         Me.menuEditItemPatch.Name = "menuEditItemPatch"
-        Me.menuEditItemPatch.Size = New System.Drawing.Size(137, 22)
+        Me.menuEditItemPatch.Size = New System.Drawing.Size(152, 22)
         Me.menuEditItemPatch.Text = "&Patch"
         '
         'menuEditItemSeason
         '
         Me.menuEditItemSeason.Name = "menuEditItemSeason"
-        Me.menuEditItemSeason.Size = New System.Drawing.Size(137, 22)
+        Me.menuEditItemSeason.Size = New System.Drawing.Size(152, 22)
         Me.menuEditItemSeason.Text = "&Season"
         '
         'menuEditItemGameplay
         '
         Me.menuEditItemGameplay.Name = "menuEditItemGameplay"
-        Me.menuEditItemGameplay.Size = New System.Drawing.Size(137, 22)
+        Me.menuEditItemGameplay.Size = New System.Drawing.Size(152, 22)
         Me.menuEditItemGameplay.Text = "&Gameplay"
         '
         'menuEditSeparator1
         '
         Me.menuEditSeparator1.Name = "menuEditSeparator1"
-        Me.menuEditSeparator1.Size = New System.Drawing.Size(134, 6)
+        Me.menuEditSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'menuEditItemLogo
         '
         Me.menuEditItemLogo.Name = "menuEditItemLogo"
-        Me.menuEditItemLogo.Size = New System.Drawing.Size(137, 22)
+        Me.menuEditItemLogo.Size = New System.Drawing.Size(152, 22)
         Me.menuEditItemLogo.Text = "&Logo Image"
         '
         'menuItemTools

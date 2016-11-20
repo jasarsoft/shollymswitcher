@@ -13,9 +13,12 @@ Public Class FormEdit
     End Sub
 
     Private Sub FormEdit_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        FormMain.Enabled = True
-        FormMain.Refresh()
-        FormMain.buttonPlay.Focus()
+        For Each _form As Form In Application.OpenForms
+            If _form.Name = FormMain.Name Then
+                _form.Enabled = True
+                '_form.Show()
+            End If
+        Next
     End Sub
 
     Private Sub buttonClose_Click(sender As Object, e As EventArgs) Handles buttonClose.Click

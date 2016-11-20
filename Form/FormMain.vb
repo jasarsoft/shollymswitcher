@@ -263,16 +263,16 @@
         'Patch and Logo
         If Me.comboPatch.SelectedIndex >= 0 Then
             Me.menuEditItemPatch.Enabled = True
-            Me.menuEditItemLogo.Enabled = True
         Else
             Me.menuEditItemPatch.Enabled = False
-            Me.menuEditItemLogo.Enabled = False
         End If
 
         'Season
         If Me.comboSeason.SelectedIndex >= 0 Then
+            Me.menuEditItemLogo.Enabled = True
             Me.menuEditItemSeason.Enabled = True
         Else
+            Me.menuEditItemLogo.Enabled = False
             Me.menuEditItemSeason.Enabled = False
         End If
 
@@ -291,6 +291,8 @@
 
             Call _edit.Reset()
             _edit.Patch = True
+
+            'Me.Hide()
             Me.Enabled = False
 
             'editForm.Text &= Me.labelPatch.Text.Replace("Select ", "").Replace(":", "")
@@ -309,6 +311,8 @@
 
             Call _edit.Reset()
             _edit.Season = True
+
+            'Me.Hide()
             Me.Enabled = False
 
             editForm.Text &= "Season"
@@ -326,6 +330,8 @@
 
             Call _edit.Reset()
             _edit.Gameplay = True
+
+            'Me.Hide()
             Me.Enabled = False
 
             editForm.Text &= "Gameplay"
@@ -358,6 +364,7 @@
     Private Sub menuHelpItemAbout_Click(sender As Object, e As EventArgs) Handles menuHelpItemAbout.Click
         Dim _aboutForm As New FormAbout()
 
+        Me.Hide()
         Me.Enabled = False
         _aboutForm.Show()
         _aboutForm.buttonClose.Focus()
@@ -365,5 +372,9 @@
 
     Private Sub FormMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Application.Exit()
+    End Sub
+
+    Private Sub menuEditItemLogo_Click(sender As Object, e As EventArgs) Handles menuEditItemLogo.Click
+
     End Sub
 End Class

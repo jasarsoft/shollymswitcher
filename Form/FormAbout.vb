@@ -40,8 +40,11 @@
     End Sub
 
     Private Sub FormAbout_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        FormMain.Enabled = True
-        FormMain.Refresh()
-        FormMain.buttonPlay.Focus()
+        For Each _form As Form In Application.OpenForms
+            If _form.Name = FormMain.Name Then
+                _form.Enabled = True
+                _form.Show()
+            End If
+        Next
     End Sub
 End Class

@@ -40,6 +40,7 @@ Partial Class FormAbout
         '
         'buttonClose
         '
+        Me.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.buttonClose.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
         Me.buttonClose.Location = New System.Drawing.Point(12, 201)
         Me.buttonClose.Name = "buttonClose"
@@ -169,6 +170,7 @@ Partial Class FormAbout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.buttonClose
         Me.ClientSize = New System.Drawing.Size(344, 250)
         Me.Controls.Add(Me.labelHorizontalLine)
         Me.Controls.Add(Me.labelDescription)
@@ -185,6 +187,7 @@ Partial Class FormAbout
         Me.Controls.Add(Me.labelTitle)
         Me.Controls.Add(Me.buttonClose)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FormAbout"
