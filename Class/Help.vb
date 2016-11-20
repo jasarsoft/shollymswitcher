@@ -23,6 +23,14 @@ Public NotInheritable Class Help
         Dim msgText As String
         Dim msgTitle As New Title()
 
+        If Not Directory.Exists(FolderName.HELP) Then
+            msgText = "Help directory does not exist." & Environment.NewLine
+            msgText &= "Readme file can not be opened."
+
+            MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
         For Each name In Directory.GetFiles(FolderName.HELP)
             Dim info As New FileInfo(name)
             If info.Name.Contains(FileName.README) Then
@@ -52,7 +60,7 @@ Public NotInheritable Class Help
         Dim path As String = FolderName.HELP & name
 
         If File.Exists(path) Then
-            Call Start(name, "link")
+            Call Start(path, "link")
         Else
             Dim msgText As String
             Dim msgTitle As New Title()
@@ -63,7 +71,11 @@ Public NotInheritable Class Help
 
             MessageBox.Show(msgText, msgTitle.Warn, MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
-            Call Start(link, "link")
+            Try
+                Process.Start(link)
+            Catch ex As Exception
+                Call Start(link, "link")
+            End Try
         End If
     End Sub
 
