@@ -42,8 +42,8 @@
     Private Sub FormAbout_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         For Each _form As Form In Application.OpenForms
             If _form.Name = FormMain.Name Then
+                '_form.Show()
                 _form.Enabled = True
-                _form.Show()
             End If
         Next
     End Sub
