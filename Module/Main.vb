@@ -1,6 +1,7 @@
 ﻿Public Module Main
 
     Public _edit As Edit
+    Public _logo As Logo
     Public _patch As Patch
     Public _season As Season
     Public _gameplay As Gameplay
@@ -24,6 +25,7 @@
 
     Sub New()
         _edit = New Edit()
+        _logo = New Logo()
         _patch = New Patch()
         _season = New Season()
         _gameplay = New Gameplay()
