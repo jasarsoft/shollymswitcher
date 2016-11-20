@@ -87,6 +87,12 @@
   <ItemGroup>
     <Compile Include="Class\About.vb" />
     <Compile Include="Class\Edit.vb" />
+    <Compile Include="Form\FormLogo.Designer.vb">
+      <DependentUpon>FormLogo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormLogo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Module\Main.vb" />
     <Compile Include="Form\FormEdit.Designer.vb">
       <DependentUpon>FormEdit.vb</DependentUpon>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormAbout.resx">
       <DependentUpon>FormAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormLogo.resx">
+      <DependentUpon>FormLogo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
