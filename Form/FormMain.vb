@@ -1,17 +1,10 @@
 ﻿Public Class FormMain
 
-    Private _patch As Patch
-    Private _season As Season
-    Private _gameplay As Gameplay
-
     Public Sub New()
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        _patch = New Patch()
-        _season = New Season()
-        _gameplay = New Gameplay()
     End Sub
 
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -225,60 +218,6 @@
         msgText = "The new settings have been successfully saved!"
         MessageBox.Show(msgText, msgTitle.Info, MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-
-        ''Save Patch
-        'If String.Compare(_settings.Patch, Me.comboPatch.Text, True) <> 0 Or _
-        '   String.Compare(_settings.Season, Me.comboSeason.Text, True) <> 0 Then
-
-        '    'If Not _patch.Save(Me.comboPatch.Text, Me.comboSeason.Text) Then
-        '    '    msgText = "The old patch files can not be changed." & Environment.NewLine
-        '    '    msgText &= "Switcher does not have administrative privileges" & Environment.NewLine
-        '    '    msgText &= "or its files are used by a third party software."
-
-        '    '    MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
-        '    '    Exit Sub
-        '    'End If
-
-        '    _patch.Name = Me.comboPatch.Text
-        '    _season.Name = Me.comboSeason.Text
-        '    _settings.Patch = Me.comboPatch.Text
-        '    _settings.Season = Me.comboSeason.Text
-        'End If
-
-        ''Save Gameplay
-        'If String.Compare(_settings.Patch, Me.comboPatch.Text, True) <> 0 Or _
-        '   String.Compare(_settings.Season, Me.comboSeason.Text, True) <> 0 Or _
-        '   String.Compare(_settings.Gameplay, Me.comboGameplay.Text, True) <> 0 Then
-
-
-
-        '    If Not _gameplay.Backup(_patch.Name, _season.Name, _gameplay.Name) Then
-        '        Dim msgResult As DialogResult
-
-        '        msgText = "Backup old option file can not be created." & Environment.NewLine
-        '        msgText &= "If you continue, the old gameplay will be lost?"
-
-        '        msgResult = MessageBox.Show(msgText, msgTitle.Warn, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        '        If msgResult = DialogResult.No Then
-        '            Exit Sub
-        '        End If
-        '    End If
-
-        '    'If Not _gameplay.Save(Me.comboPatch.Text, Me.comboSeason.Text, Me.comboGameplay.Text) Then
-        '    '    msgText = "The old gameplay file can not be changed." & Environment.NewLine
-        '    '    msgText &= "Switcher does not have administrative privileges" & Environment.NewLine
-        '    '    msgText &= "or its file using a third party software."
-
-        '    '    MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
-        '    '    Exit Sub
-        '    'End If
-
-        '    _gameplay.Name = Me.comboGameplay.Text
-        '    _settings.Gameplay = Me.comboGameplay.Text
-        'End If
-
-        'Save Settings
-
     End Sub
 
     Private Sub ButtonPlay_Click(sender As Object, e As EventArgs) Handles buttonPlay.Click
@@ -344,24 +283,6 @@
             Me.menuEditItemGameplay.Enabled = False
         End If
 
-
-        'If Me.comboPatch.Text.Length > 0 Then
-        '    menuEditItemPatch.Enabled = True
-        '    menuEditItemLogo.Enabled = True
-        'Else
-        '    menuEditItemPatch.Enabled = False
-        '    menuEditItemLogo.Enabled = False
-        'End If
-        'If Me.comboSeason.Text.Length > 0 Then
-        '    menuEditItemSeason.Enabled = True
-        'Else
-        '    menuEditItemSeason.Enabled = False
-        'End If
-        'If Me.comboGameplay.Text.Length > 0 Then
-        '    menuEditItemGameplay.Enabled = True
-        'Else
-        '    menuEditItemGameplay.Enabled = False
-        'End If
     End Sub
 
     Private Sub MenuEditItemPatch_Click(sender As Object, e As EventArgs) Handles menuEditItemPatch.Click
@@ -442,4 +363,7 @@
         _aboutForm.buttonClose.Focus()
     End Sub
 
+    Private Sub FormMain_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Application.Exit()
+    End Sub
 End Class

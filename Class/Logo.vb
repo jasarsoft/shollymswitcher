@@ -15,7 +15,7 @@ Public Class Logo
     Public Function Read(ByVal patch As String, ByVal season As String) As Boolean
         Dim filePath As String
 
-        filePath = Directory.GetCurrentDirectory() & Slash
+        filePath = FolderApp & Slash
         filePath &= FolderPatch & Slash
         filePath &= patch & Slash
         filePath &= season & Slash

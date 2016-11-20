@@ -54,8 +54,9 @@ Public Class Patch
             For Each dirName As String In Directory.GetDirectories(Folder)
                 Dim dirInfo As New DirectoryInfo(dirName)
 
+                _lenght += 1
                 _list.Add(dirInfo.Name)
-                _lenght += 1 '_lenght = _lenght + 1; _lenght++; ++_lenght;
+                '_lenght = _lenght + 1; _lenght++; ++_lenght;
             Next
 
             If _lenght = 0 Then

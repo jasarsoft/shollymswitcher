@@ -1,6 +1,9 @@
 ﻿Public Module Main
 
     Public _edit As Edit
+    Public _patch As Patch
+    Public _season As Season
+    Public _gameplay As Gameplay
 
     <STAThread()> _
     Public Function Main(ByVal cmdArgs() As String) As Integer
@@ -21,5 +24,8 @@
 
     Sub New()
         _edit = New Edit()
+        _patch = New Patch()
+        _season = New Season()
+        _gameplay = New Gameplay()
     End Sub
 End Module
