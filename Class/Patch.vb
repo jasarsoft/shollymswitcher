@@ -23,7 +23,7 @@ Public Class Patch
         End Get
         Set(value As String)
             _name = value
-            _path = FolderApp & Slash & FolderPatch & _name
+            _path = FolderApp & Slash & FolderPatch & Slash & _name
         End Set
     End Property
 

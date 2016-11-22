@@ -4,12 +4,14 @@ Public NotInheritable Class Gameplay
     Inherits Switcher
 
     Private _name As String
+    Private _path As String
     Private _lenght As Integer
     Private _list As List(Of String)
 
     Public Sub New()
         _lenght = 0
         _name = Nothing
+        _path = Nothing
         _list = New List(Of String)
     End Sub
 
@@ -20,7 +22,15 @@ Public NotInheritable Class Gameplay
         End Get
         Set(value As String)
             _name = value
+            _path = _patch.Path & Slash & _season.Name & Slash
+            _path &= FolderGameplay & Slash & _name & Slash & FileGameplay
         End Set
+    End Property
+
+    Public ReadOnly Property Path As String
+        Get
+            Return _path
+        End Get
     End Property
 
     Public ReadOnly Property Lenght As Integer
@@ -36,68 +46,54 @@ Public NotInheritable Class Gameplay
     End Property
 
 
-    Public Function Read(ByVal patch As String, ByVal season As String) As Boolean
-        Dim dirPath As String
-        Dim msgText As String
-        Dim msgTitle As New Title()
-
+    Public Function Read() As Boolean
         _lenght = 0
         _list.Clear()
 
-        dirPath = FolderApp & Slash & FolderPatch & Slash
-        dirPath &= patch & Slash & season & Slash & FolderGameplay
+        If CheckFolder() Then
+            Dim dirPath As String
+            Dim dirList As String()
 
-        If Directory.Exists(dirPath) Then
-            For Each dirName As String In Directory.GetDirectories(dirPath)
+            dirPath = _patch.Path & Slash & _season.Name & Slash & FolderGameplay
+            dirList = Directory.GetDirectories(dirPath)
+
+            For Each dirName As String In dirList
                 Dim dirInfo As New DirectoryInfo(dirName)
 
                 _lenght += 1
                 _list.Add(dirInfo.Name)
             Next
 
-            If _lenght = 0 Then
-                msgText = "For the selected season there is not a gameplay." & Environment.NewLine
-                msgText &= "Shollym Switcher is not installed properly or is damaged."
-
-                MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
+            If CheckLenght() Then
                 Return True
             End If
-        Else
-            msgText = "The selected season does not exist." & Environment.NewLine
-            msgText &= "Shollym Switcher is not installed properly or is damaged."
-
-            MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
         Return False
     End Function
 
-    Public Function Save(ByVal patch As String, ByVal season As String) As Boolean
+    Public Function Save() As Boolean
         Dim msgText As String
         Dim msgTitle As New Title()
-        Dim fileSource As String
-        Dim fileDestionation As String
+        
+        If Check() Then
+            If Not Directory.Exists(FolderMyDoc & Slash & FolderSave) Then
+                Try
+                    Directory.CreateDirectory(FolderMyDoc & Slash & FolderSave)
+                Catch ex As Exception
+                    msgText = "The save directory could not be created." & Environment.NewLine
+                    msgText &= "Shollym Switcher does not have administrative privileges."
 
-        fileSource = FolderApp & Slash & FolderPatch & Slash
-        fileSource &= patch & Slash & season & Slash
-        fileSource &= FolderGameplay & Slash & _name & Slash & FileGameplay
+                    MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Return False
+                End Try
+            End If
 
-        fileDestionation = FolderMyDoc & Slash & FolderSave & Slash & FileGameplay
-
-        If Not File.Exists(fileSource) Then
-            msgText = "Gameplay does not exist for the selected patch and season." & Environment.NewLine
-            msgText &= "Shollym Switcher is not installed properly or is damaged."
-
-            MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return False
-        End If
-
-        If Not Directory.Exists(FolderMyDoc & Slash & FolderSave) Then
             Try
-                Directory.CreateDirectory(FolderMyDoc & Slash & FolderSave)
+                My.Computer.FileSystem.CopyFile(_path, FolderMyDoc & Slash & FolderSave & Slash & FileGameplay, True)
+                Return True
             Catch ex As Exception
-                msgText = "The save directory could not be created." & Environment.NewLine
+                msgText = "The gameplay can not be saved." & Environment.NewLine
                 msgText &= "Shollym Switcher does not have administrative privileges."
 
                 MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -105,17 +101,7 @@ Public NotInheritable Class Gameplay
             End Try
         End If
 
-        Try
-            My.Computer.FileSystem.CopyFile(fileSource, fileDestionation, True)
-            Return True
-        Catch ex As Exception
-            msgText = "The gameplay can not be saved." & Environment.NewLine
-            msgText &= "Shollym Switcher does not have administrative privileges."
-
-            MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return False
-        End Try
-
+        Return False
     End Function
 
     Public Function Backup(ByVal patch As String, ByVal season As String, ByVal gameplay As String) As Boolean
@@ -229,14 +215,9 @@ Public NotInheritable Class Gameplay
     End Function
 
 
-    Public Function Check(ByVal patch As String, ByVal season As String) As Boolean
-        Dim path As String
-
-        path = FolderApp & Slash & FolderPatch & Slash
-        path &= patch & Slash & season & Slash
-        path &= FolderGameplay & Slash & _name & Slash & FileGameplay
-
-        If Not File.Exists(path) Then
+    Public Function Check() As Boolean
+        
+        If Not File.Exists(_path) Then
             Dim msgText As String
             Dim msgTItle As New Title()
 
@@ -244,6 +225,40 @@ Public NotInheritable Class Gameplay
             msgText &= "Shollym Switcher is not installed properly or is damaged."
 
             MessageBox.Show(msgText, msgTItle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Private Function CheckFolder() As Boolean
+        Dim dirPath As String
+
+        dirPath = _patch.Path & Slash & _season.Name & Slash & FolderGameplay
+
+        If Not Directory.Exists(dirPath) Then
+            Dim msgText As String
+            Dim msgTitle As New Title()
+
+            msgText = "The selected season does not contain any gameplay." & Environment.NewLine
+            msgText &= "Shollym Switcher is not installed properly or is damaged."
+
+            MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Private Function CheckLenght() As Boolean
+        If _lenght = 0 Then
+            Dim msgText As String
+            Dim msgTitle As New Title()
+
+            msgText = "The selected season does not contain any gameplay." & Environment.NewLine
+            msgText &= "Shollym Switcher is not installed properly or is damaged."
+
+            MessageBox.Show(msgText, msgTitle.Mistake, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False
         End If
 

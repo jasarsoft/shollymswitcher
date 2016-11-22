@@ -81,7 +81,6 @@
     End Sub
 
     Private Sub ComboPatch_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboPatch.SelectedIndexChanged
-        Dim _logo As New Logo()
         _patch.Name = Me.comboPatch.Text
 
         If _edit.Patch Then
@@ -100,18 +99,15 @@
                 Me.comboSeason.Enabled = True
             End If
 
-            If _season.Read(_patch.Name) Then
+            If _season.Read() Then
                 For Each name As String In _season.List
                     Me.comboSeason.Items.Add(name)
                 Next
             End If
-        Else
-            Call FormMain_Load(sender, e)
         End If
     End Sub
 
     Private Sub ComboSeason_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboSeason.SelectedIndexChanged
-        Dim _logo As New Logo()
         _season.Name = Me.comboSeason.Text
 
         If _edit.Season Then
@@ -119,10 +115,10 @@
             Exit Sub
         End If
 
-        If _season.Check(_patch.Name) Then
+        If _season.Check() Then
             Me.comboGameplay.Items.Clear()
 
-            If _logo.Read(_patch.Name, _season.Name) Then
+            If _logo.Read() Then
                 Me.pictureLogo.Load(_logo.Path)
             End If
 
@@ -130,13 +126,11 @@
                 Me.comboGameplay.Enabled = True
             End If
 
-            If _gameplay.Read(_patch.Name, _season.Name) Then
+            If _gameplay.Read() Then
                 For Each name As String In _gameplay.List
                     Me.comboGameplay.Items.Add(name)
                 Next
             End If
-        Else
-            Call FormMain_Load(sender, e)
         End If
     End Sub
 
@@ -148,8 +142,8 @@
             Exit Sub
         End If
 
-        If Not _gameplay.Check(_patch.Name, _season.Name) Then
-            Call FormMain_Load(sender, e)
+        If Not _gameplay.Check() Then
+            Me.comboGameplay.SelectedIndex = -1
         End If
 
     End Sub
@@ -169,11 +163,15 @@
             Exit Sub
         End If
 
+        If Not _patch.Check() And Not _season.Check() Then
+            Exit Sub
+        End If
+
         If _settings.Read() Then
             If String.Compare(_settings.Patch, _patch.Name, True) <> 0 Or _
                String.Compare(_settings.Season, _season.Name, True) <> 0 Then
 
-                If Not _season.Save(_patch.Name) Then
+                If Not _season.Save() Then
                     Exit Sub
                 End If
             End If
@@ -183,7 +181,7 @@
                String.Compare(_settings.Gameplay, _gameplay.Name, True) <> 0 Then
 
                 _gameplay.Backup(_settings.Patch, _settings.Season, _settings.Gameplay)
-                If Not _gameplay.Save(_patch.Name, _season.Name) Then
+                If Not _gameplay.Save() Then
                     Exit Sub
                 End If
             End If
@@ -192,11 +190,11 @@
                 _gameplay.Backup(_settings.Patch, _settings.Season, _settings.Gameplay)
             End If
 
-            If Not _season.Save(_patch.Name) Then
+            If Not _season.Save() Then
                 Exit Sub
             End If
 
-            If Not _gameplay.Save(_patch.Name, _season.Name) Then
+            If Not _gameplay.Save() Then
                 Exit Sub
             End If
 
@@ -259,8 +257,7 @@
     End Sub
 
 
-    Private Sub MenuItemEdit_Click(sender As Object, e As EventArgs) Handles menuItemEdit.Click
-        'Patch and Logo
+    Private Sub menuMain_Click(sender As Object, e As EventArgs) Handles menuMain.Click
         If Me.comboPatch.SelectedIndex >= 0 Then
             Me.menuEditItemPatch.Enabled = True
         Else
@@ -282,8 +279,8 @@
         Else
             Me.menuEditItemGameplay.Enabled = False
         End If
-
     End Sub
+
 
     Private Sub MenuEditItemPatch_Click(sender As Object, e As EventArgs) Handles menuEditItemPatch.Click
         If menuEditItemPatch.Enabled Then
@@ -364,8 +361,9 @@
     Private Sub menuHelpItemAbout_Click(sender As Object, e As EventArgs) Handles menuHelpItemAbout.Click
         Dim _aboutForm As New FormAbout()
 
-        Me.Hide()
+        'Me.Hide()
         Me.Enabled = False
+
         _aboutForm.Show()
         _aboutForm.buttonClose.Focus()
     End Sub
@@ -375,6 +373,19 @@
     End Sub
 
     Private Sub menuEditItemLogo_Click(sender As Object, e As EventArgs) Handles menuEditItemLogo.Click
+        Dim _logoForm As New FormLogo()
+
+        'Me.Hide()
+        Me.Enabled = False
+
+        If _logo.Read() Then
+            _logoForm.textPath.Text = _logo.Path
+        End If
+
+        _logoForm.Show()
+        _logoForm.buttonSelect.Focus()
 
     End Sub
+
+   
 End Class
