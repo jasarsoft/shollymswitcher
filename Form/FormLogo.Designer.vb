@@ -109,6 +109,7 @@ Partial Class FormLogo
         Me.textPath.Location = New System.Drawing.Point(15, 86)
         Me.textPath.MaxLength = 512
         Me.textPath.Name = "textPath"
+        Me.textPath.ReadOnly = True
         Me.textPath.Size = New System.Drawing.Size(317, 22)
         Me.textPath.TabIndex = 7
         '
